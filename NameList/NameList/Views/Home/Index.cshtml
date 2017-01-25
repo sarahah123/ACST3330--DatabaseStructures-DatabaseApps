@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.Raw(ViewBag.Message)</h2>
+
+
+@{ using (Html.BeginForm())
+    {
+        int sizeVal = ViewBag.ListSize;
+
+        <div>
+            Name: @Html.TextBox("name", "")
+        </div>
+
+        <p></p>
+
+
+        <div>
+            Current Items: @Html.ListBox("NameItems", null, new { size = @sizeVal })
+        </div>
+
+        <p></p>
+
+
+        <div>
+            <input type="submit" name="button" value="Add" />
+            <input type="submit" name="button" value="Remove" />
+        </div>
+    } 
+}
