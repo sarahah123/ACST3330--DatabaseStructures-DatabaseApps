@@ -1,0 +1,31 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@{ using (Html.BeginForm())
+    {
+        int sizeVal = ViewBag.ListSize;
+        <div>
+            New Test Name: @Html.TextBox("newName", "")
+        </div>
+        <div>
+            <input type="submit" name="button" value="Add Test" />
+        </div>
+        <hr />
+
+        <div>
+            Add Score: @Html.TextBox("score", "")
+        </div>
+        <div>
+            Select Test: @Html.DropDownList("NameItems", "--Select One--")
+        </div>
+        <div>
+            <input type="submit" name="button" value="Add Score" />
+        </div>
+        <hr />
+
+        <p></p>
+
+        <div>
+            Current Tests: @Html.ListBox("TestEntryItems", null, new { size = @sizeVal })
+        </div>
+    } 
+}
