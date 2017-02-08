@@ -15,15 +15,22 @@ namespace ExamsAndAverages.Models
 {
     public class TestEntry
     {
+        public int ID { get; set;  }
         public String name { get; set; }
         public int amount { get; set; }
         public double sum { get; set; }
 
-        public TestEntry(String name)
+        public TestEntry(String name, int id)
         {
+            ID = id;
             this.name = name;
             amount = 0;
             sum = 0;
+        }
+
+        public TestEntry()
+        {
+
         }
 
         public override String ToString()

@@ -1,0 +1,56 @@
+﻿@model ExamsAndAverages.Models.TestEntry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.Raw(ViewBag.Message)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.Label("Exams Submitted")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            @Html.Label("Sum of Exams")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sum)
+        </dd>
+
+        <dt>
+            @Html.Label("Average")
+        </dt>
+
+        <dd>
+            @{
+                String average = "0";
+                if (Model.amount > 0)
+                {
+                    average = string.Format("{0:0.##}", Model.sum / Model.amount);
+                }
+                @average
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Add Score", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
